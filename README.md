@@ -1,50 +1,17 @@
-# BTC GO v0.6.0
+# btcgo v0.7
 
-# Instruções para rodar o projeto (na sua máquina)
+Abra o cmd e rode: go mod tidy
 
-[![instalação do Go no Windows](https://img.youtube.com/vi/679Zc7ZQLtI/0.jpg)](https://www.youtube.com/watch?v=679Zc7ZQLtI)
+dps rode: go run main.go
 
-## Requisitos
-  -  [Go][install-go]
-  -  Terminal
+Método de busca:
+ Busca randômica
 
-## Execução do corre
-Se liga no esquema pra rodar o bagulho:
+Funcionamento:
+ imagine um range de 1 a 100, o algoritmo escolhe randomicamente um numero (exemplo 15), e gera um "bloco" do tamanho especificado pelo usuário a partir do numero 15. vamos supor que esse bloco seja de tamanho 10, ele irá ler do 15 ao 25 sequencialmente. Caso a chave n seja encontrada, o processo se repetirá.
 
- * Clona o repo:
-  ``` git clone git@github.com:lmajowka/btcgo.git ```
- * Brota na pasta do projeto:
-  ``` cd btcgo ```
- * Instala as parada:
- ``` go mod tidy ```
- * Faz o build do projeto no LINUX:
- ``` go build -o btcgo ./cmd/main.go ``` 
+obs: o range de cada bloco lido será armazenado para que n seja sobreposto. Recomendo para o puzzle 66 um bloco de tamanho 5 milhões.
 
-  * Faz o build do projeto no WINDOWS:
- ``` go build -o btcgo.exe ./cmd/main.go ``` 
- * Executa o que foi compilado:
- ``` ./btcgo ```
-
-Aí é só seguir o baile, parceiro.
-
-# Instruções para rodar o projeto (em container)
-
-## Requisitos
-  -  [Docker][install-docker]
-  -  [Docker-compose][install-docker-compose]
-
-## Execução da parada
-É tão fácil como voar:
-
- * Clona o repo:
-  ``` git clone git@github.com:lmajowka/btcgo.git && cd btcgo```
- * Build do Dockerfile:
-   ``` docker buildx build --no-cache -t btcgo .```
- * Executa a imagem contruída no passo anterior:
-   ``` docker run -it --name btcgo btcgo```
-
-
-
-[install-go]: https://go.dev/doc/install
-[install-docker]: https://www.docker.com/get-started/
-[install-docker-compose]: https://docs.docker.com/compose/install/
+Funcionalidade carregar progresso:
+caso seja interrompida a busca, a opção "2. Continuar busca anterior" ira carregar os blocos armazenados para garantir que eles n sejam lidos novamente.
+obs: caso carregue um progresso, UTILIZE O MESMO TAMANHO DE BLOCO PARA N HAVER CONFLITOS
