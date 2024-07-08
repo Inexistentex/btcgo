@@ -15,3 +15,5 @@ obs: o range de cada bloco lido será armazenado para que n seja sobreposto. Rec
 Funcionalidade carregar progresso:
 caso seja interrompida a busca, a opção "2. Continuar busca anterior" ira carregar os blocos armazenados para garantir que eles n sejam lidos novamente.
 obs: caso carregue um progresso, UTILIZE O MESMO TAMANHO DE BLOCO PARA N HAVER CONFLITOS
+
+Quando uma chave for encontrada a busca irá parar e a chave será mandada para o arquivo found_keys
