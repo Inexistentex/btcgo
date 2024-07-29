@@ -1,27 +1,37 @@
 # FORK btcgo v1.1
 
-Abra o cmd e rode: go mod tidy
+1* Abra o cmd e rode: go mod tidy
+2* Configurar o divisor de intervalos
+3* Executar  Compilar.bat
+4* Iniciar btcgo.EXE
 
-dps entre na pasta divisor de intervalos e com base no arquivo Puzzles.json, escolha a wallet ou as wallets q deseja buscar
+
+
+Configurar o divisor de intervalos:
+entre na pasta divisor de intervalos e com base no arquivo Puzzles.json, escolha a wallet ou as wallets q deseja buscar
 voce pode adicionar quantos wallets e intervalos quiser para buscar ao mesmo tempo.
-abra o main.go:
 
-ex: para buscar as carteiras 66, 67, 68
+abra o /divisor de intervalos/main.go como bloco de notas
+
+EX: para buscar as carteiras 66, 67, 68
 
 Metodo 1 para buscar mais de uma carteira
 
 // Input range
 	inputRange := Range{
-		Min:    "0x20000000000000000", // range minimo
-		Max:    "0xfffffffffffffffff", // range maximo
+		Min:    "0x20000000000000000", // range minimo da carteira 66
+		Max:    "0xfffffffffffffffff", // range maximo da carteira 68
 		Status: "13zb1hQbWVsc2S7ZTZnP2G4undNNpdh5so, 1BY8GQbnueYofwSuFAT3USAhGjPrkxDdW9, 1MVDYgVaSN6iKKEsbzRUAYFrYJadLYZvvZ", // wallets a ser buscada
 
 // Number of intervals 
 	numIntervals := 200 // Numero da divisao de intervalos (quanto maior, maior a aleatoriedade) MINIMO 2 INTERVALOS
 
+ rode Gerar.bat
+
  Metodo 2 para buscar mais de uma carteira 
  
- Criar um arquivo ranges.json nesse modelo
+ Criar um arquivo ranges.json manualmente nesse modelo
+ ranges minimos e maximos das carteiras 66,67,68 com suas respectivas wallets no campo "status"
  
 {
   "ranges":  [
@@ -32,9 +42,9 @@ Metodo 1 para buscar mais de uma carteira
   ]
 }
 
-Metodo 1 para buscar APENAS uma carteira
+Metodo Para buscar APENAS uma carteira
 EX: carteria 66
-abra o main.go em "divisor de intervalos"
+abra o  /divisor de intervalos/main.go como bloco de notas
 
 // Input range
 	inputRange := Range{
@@ -46,7 +56,7 @@ abra o main.go em "divisor de intervalos"
 // Number of intervals
 	numIntervals := 200 (minimo 2 intervalos)
 
-
+rode o Gerar.bat
 
 
 Método de busca:
